@@ -23,7 +23,7 @@
 #  endif
 #elif defined(ACORN)
 #elif defined(MACOS)
-#  include <ctime.h>
+#  include <ctime>
 #else
 #  include <unistd.h>
 #  include <sys/types.h>
