@@ -1,43 +1,27 @@
 TEMPLATE  = lib
-CONFIG   += staticlib release
+CONFIG   += staticlib
 
-XPDF_DIR = "xpdf-3.03"
+XPDF_DIR = $$PWD/xpdf-3.03
 
 unix {
     linux-g++ {
         CONFIG += create_prl
-        SUB_LIB = "linux"
     }
     linux-g++-32 {
         CONFIG += create_prl
-        SUB_LIB = "linux"
     }
     linux-g++-64 {
         CONFIG += create_prl
-        SUB_LIB = "linux"
     }
 }
 
 macx {
-    SUB_LIB = "macx"
-}
-
-win32 {
-    SUB_LIB = "win32"
-}
-
-
-DESTDIR = "lib/$$SUB_LIB"
-
-OBJECTS_DIR  = "objects"
-
-macx {
-    CONFIG += x86
-    QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.5"
+    DEFINES += MACOS
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 }
 
 # Free type includes and lib
-FREETYPE_DIR = "../freetype/freetype-2.4.6"
+FREETYPE_DIR = "$$PWD/../freetype/freetype-2.4.6"
 INCLUDEPATH += "$$FREETYPE_DIR/include" "$$FREETYPE_DIR/include/freetype2"
 LIBS        += "-L../freetype/lib/$$SUB_LIB" "-lfreetype"
 
