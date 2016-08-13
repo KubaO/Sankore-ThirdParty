@@ -11,10 +11,10 @@ macx {
     QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 }
 win32 {
-    DEFINES += _CRT_SECURE_NO_WARNINGS
-    LIBS += -L$$OUT_PWD/$$LEVEL/zlib -lz
-    DEPENDPATH += $$PWD/$$LEVEL/zlib/zlib-1.2.8
-    INCLUDEPATH += $$PWD/$$LEVEL/zlib/zlib-1.2.8
+    DEFINES     += _CRT_SECURE_NO_WARNINGS
+    LIBS        += "-Lthirdparty/zlib" "-lzlib"
+    DEPENDPATH  += "$$PWD/$$LEVEL/zlib/zlib-1.2.8"
+    INCLUDEPATH += "$$PWD/$$LEVEL/zlib/zlib-1.2.8"
 }
 
 HEADERS += $$SRC/crypt.h \
