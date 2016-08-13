@@ -1,7 +1,7 @@
 TEMPLATE  = lib
 CONFIG   += staticlib
 
-XPDF_DIR = $$PWD/xpdf-3.03
+XPDF_DIR = $$PWD/xpdf-3.04
 
 unix {
     linux-g++ {
@@ -20,16 +20,19 @@ macx {
     QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 }
 
+win32 {
+    QMAKE_CXXFLAGS_WARN_ON -= -w34100 # -w3 takes precedence over -wd
+    QMAKE_CXXFLAGS += -wd4100 # disable the C4100 warning "unreferenced formal parameter"
+    QMAKE_CXXFLAGS += -wd4290 # disable the C4290 warning "C++ exception specification ignored"
+}
+
 # Free type includes and lib
 FREETYPE_DIR = "$$PWD/../freetype/freetype-2.4.6"
 INCLUDEPATH += "$$FREETYPE_DIR/include" "$$FREETYPE_DIR/include/freetype2"
 LIBS        += "-L../freetype/lib/$$SUB_LIB" "-lfreetype"
 
-INCLUDEPATH += $$XPDF_DIR "$$XPDF_DIR/fofi" "$$XPDF_DIR/goo" "$$XPDF_DIR/splash" "$$XPDF_DIR/include" "xpdf-3.03Extra"
+INCLUDEPATH += $$PWD $$XPDF_DIR "$$XPDF_DIR/fofi" "$$XPDF_DIR/goo" "$$XPDF_DIR/splash" "$$XPDF_DIR/include"
 
-aconf.path    = $$XPDF_DIR
-aconf.files = $$XPDF_DIR/aconf.h
-headers.path  = "$$XPDF_DIR/xpdf"
 headers.files = $$XPDF_DIR/goo/gmem.h \
                 $$XPDF_DIR/goo/gtypes.h \
                 $$XPDF_DIR/goo/GMutex.h \
@@ -53,8 +56,8 @@ headers.files = $$XPDF_DIR/goo/gmem.h \
                 $$XPDF_DIR/xpdf/XRef.h \
                 $$XPDF_DIR/xpdf/OptionalContent.h
 
-#INSTALLS += "aconf" "headers"
-INSTALLS += "headers"
+HEADERS += $$headers.files \
+           $$PWD/aconf.h
 
 SOURCES += $$XPDF_DIR/fofi/FoFiBase.cc \
            $$XPDF_DIR/fofi/FoFiEncodings.cc \
@@ -125,7 +128,4 @@ SOURCES += $$XPDF_DIR/fofi/FoFiBase.cc \
            $$XPDF_DIR/xpdf/UnicodeMap.cc \
            $$XPDF_DIR/xpdf/UnicodeTypeTable.cc \
            $$XPDF_DIR/xpdf/XRef.cc \
-           $$XPDF_DIR/splash/SplashT1Font.cc \
-           $$XPDF_DIR/splash/SplashT1FontEngine.cc \
-           $$XPDF_DIR/splash/SplashT1FontFile.cc \
            $$XPDF_DIR/xpdf/OptionalContent.cc
