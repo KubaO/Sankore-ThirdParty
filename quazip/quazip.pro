@@ -1,5 +1,5 @@
+LEVEL = ..
 TEMPLATE = lib
-
 CONFIG  += staticlib
 
 SRC = $$PWD/quazip-0.3
@@ -10,13 +10,12 @@ linux-g++-64 {
 macx {
     QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 }
+win32 {
+    LIBS += -L$$OUT_PWD/$$LEVEL/zlib -lz
+    DEPENDPATH += $$PWD/$$LEVEL/zlib/zlib-1.2.8
+    INCLUDEPATH += $$PWD/$$LEVEL/zlib/zlib-1.2.8
+}
 
-#DEPENDPATH  += .
-#INCLUDEPATH += . \
-#               "$$PWD/../zlib/1.2.3" \
-#               "$$PWD/../zlib/1.2.3/include"
-
-#HEADERS += "$$PWD/../zlib/1.2.3/include/zlib.h" \
 HEADERS += $$SRC/crypt.h \
            $$SRC/ioapi.h \
            $$SRC/quazip.h \
