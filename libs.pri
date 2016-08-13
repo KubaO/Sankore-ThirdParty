@@ -23,7 +23,6 @@ FREETYPE_DIR = "$PWD/freetype/freetype-2.4.6"
 # no INCLUDEPATH, freetype is not used directly
 
 LIBS        += "-Lthirdparty/quazip" "-lquazip"
-#INCLUDEPATH += "$$PWD/zlib/1.2.3/include"
 LIBS        += "-Lthirdparty/xpdf" "-lxpdf"
 
 #XPDF_DIR     = "$$PWD/xpdf/xpdf-3.03"
@@ -45,6 +44,9 @@ linux-g++-64 {
 win32 {
     LIBS        += "-L$$PWD/openssl/0.9.8i/lib/VC/static" "-llibeay32MD"
     INCLUDEPATH += "$$PWD/openssl/0.9.8i/include"
+
+    LIBS        += "-Lthirdparty/zlib" "-lzlib"
+    INCLUDEPATH += "$$PWD/zlib/zlib-1.2.8"
 
     LIBS        += "-lWmvcore"
     LIBS        += "-lWinmm"
@@ -68,5 +70,4 @@ macx {
     LIBS         += "$$PWD/unsanity/ape/APELite.o"
     INCLUDEPATH  += "$$PWD/unsanity/ape"
 }
-
 
