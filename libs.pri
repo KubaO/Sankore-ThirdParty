@@ -42,8 +42,8 @@ linux-g++-64 {
 }
 
 win32 {
-    LIBS        += "-L$$PWD/openssl/0.9.8i/lib/VC/static" "-llibeay32MD"
-    INCLUDEPATH += "$$PWD/openssl/0.9.8i/include"
+    LIBS        += "-Lthirdparty/openssl/lib" "-llibeay32"
+    INCLUDEPATH += "$$OUT_PWD/thirdparty/openssl/include"
 
     LIBS        += "-Lthirdparty/zlib" "-lzlib"
     INCLUDEPATH += "$$PWD/zlib/zlib-1.2.8"
