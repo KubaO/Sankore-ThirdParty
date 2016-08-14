@@ -25,11 +25,8 @@ FREETYPE_DIR = "$PWD/freetype/freetype-2.4.6"
 LIBS        += "-Lthirdparty/quazip" "-lquazip"
 LIBS        += "-Lthirdparty/xpdf" "-lxpdf"
 
-#XPDF_DIR     = "$$PWD/xpdf/xpdf-3.03"
-#INCLUDEPATH += "$$XPDF_DIR"
-#INCLUDEPATH += "$$XPDF_DIR/goo"
-#INCLUDEPATH += "$$XPDF_DIR/splash"
-
+XPDF_DIR     = "$$PWD/xpdf/xpdf-3.04"
+INCLUDEPATH += "$$XPDF_DIR" "$$XPDF_DIR/.."
 
 linux-g++ {
     LIBS        += -lpaper -lt1
