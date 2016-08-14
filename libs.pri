@@ -38,6 +38,9 @@ linux-g++-64 {
     LIBS        += -lpaper -lt1
 }
 
+PHONON_DIR      = "$$PWD/phonon/phonon-4.9.0"
+INCLUDEPATH    += "$$PHONON_DIR/includes" "$$PHONON_DIR/phonon" "$$PHONON_DIR/.."
+
 win32 {
     LIBS        += "-Lthirdparty/openssl/lib" "-llibeay32"
     INCLUDEPATH += "$$OUT_PWD/thirdparty/openssl/include"
