@@ -3,31 +3,49 @@ CONFIG += static
 
 SRC = $$PWD/icu4c-54-1/source
 
-INCLUDEPATH +=  $$SRC/../common \
+INCLUDEPATH +=  $$SRC/common \
+                $$SRC/i18n \
                 $$SRC
 
-CONFIG(debug,debug|release) {
-    DEFINES += U_DEBUG=1
+CONFIG(release,debug|release) {
+    DEFINES += NDEBUG
 }
 
-CONFIG(release,debug|release) {
-    MSVC_RELEASE_FLAG = /fp:precise /Op
-    QMAKE_CFLAGS += $$MSVC_RELEASE_FLAG
-    QMAKE_CXXFLAGS += $$MSVC_RELEASE_FLAG
+CONFIG(debug,debug|release) {
+    DEFINES += U_DEBUG=1 RBBI_DEBUG
 }
+
+win32 {
+    DEFINES += WIN32 _CRT_SECURE_NO_DEPRECATE
+
+    CONFIG(release,debug|release) {
+        MSVC_RELEASE_FLAGS = /fp:precise /Op
+        QMAKE_CFLAGS += $$MSVC_RELEASE_FLAGS
+        QMAKE_CXXFLAGS += $$MSVC_RELEASE_FLAGS
+    }
+
+    QMAKE_CFLAGS_WARN_ON -= -w34100   # -w3 takes precedence over -wd
+    QMAKE_CXXFLAGS_WARN_ON -= -w34100 # -w3 takes precedence over -wd
+    QUIET_FLAGS += /wd4100 # disable the C4100 warning "unreferenced formal parameter"
+    QUIET_FLAGS += /wd4189 # disable the C4189 warning "local variable is initialized but not referenced"
+    QUIET_FLAGS += /wd4244 # disable the C4224 warning "possible loss of data"
+    QUIET_FLAGS += /wd4996 # disable the C4996 warning "deprecated function"
+    QMAKE_CFLAGS += $$QUIET_FLAGS
+    QMAKE_CXXFLAGS += $$QUIET_FLAGS
+}
+
+DEFINES += U_EXPORT= U_IMPORT=
+
+DEFINES += U_ATTRIBUTE_DEPRECATED=
+
+DEFINES +=  U_COMMON_IMPLEMENTATION \
+            U_IO_IMPLEMENTATION \
+            U_I18N_IMPLEMENTATION
 
 # Disable dynamic loading of plugins
 DEFINES += U_ENABLE_DYLOAD=0
 # We have atomic support
 DEFINES += U_HAVE_ATOMIC=1
-
-#DEFINES += U_HAVE_MMAP=0
-#DEFINES += U_HAVE_INTTYPES=0
-#DEFINES += U_HAVE_DIRENT_H=0
-#DEFINES += U_HAVE_POPEN=0
-#DEFINES += U_HAVE_TZSET=0
-#DEFINES += U_HAVE_TZNAME=0
-#DEFINES += U_HAVE_TIMEZONE=0
 
 OFF_HEADERS += \
            $$SRC/common/bmpset.h \
