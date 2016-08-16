@@ -23,8 +23,8 @@ FREETYPE_DIR = "$PWD/freetype/freetype-2.4.6"
 # no INCLUDEPATH, freetype is not used directly
 
 LIBS        += "-Lthirdparty/quazip" "-lquazip"
-LIBS        += "-Lthirdparty/xpdf" "-lxpdf"
 
+LIBS        += "-Lthirdparty/xpdf" "-lxpdf"
 XPDF_DIR     = "$$PWD/xpdf/xpdf-3.04"
 INCLUDEPATH += \
     "$$XPDF_DIR" \
@@ -42,8 +42,9 @@ linux-g++-64 {
     LIBS        += -lpaper -lt1
 }
 
-PHONON_DIR      = "$$PWD/phonon/phonon-4.9.0"
-INCLUDEPATH    += "$$PHONON_DIR/includes" "$$PHONON_DIR/phonon" "$$PHONON_DIR/.."
+LIBS            += "-Lthirdparty/phonon" "-lphonon"
+PHONON_DIR       = "$$PWD/phonon/phonon-4.9.0"
+INCLUDEPATH     += "$$PHONON_DIR/includes" "$$PHONON_DIR/phonon" "$$PHONON_DIR/.."
 
 win32 {
     LIBS        += "-Lthirdparty/openssl/lib" "-llibeay32"
