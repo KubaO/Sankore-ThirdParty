@@ -73,5 +73,7 @@ macx {
     LIBS         += "-lcrypto"
     LIBS         += "$$PWD/unsanity/ape/APELite.o"
     INCLUDEPATH  += "$$PWD/unsanity/ape"
+
+    DEFINES      += MACOS # needed by xpdf
 }
 

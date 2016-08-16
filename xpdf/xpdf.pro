@@ -18,6 +18,7 @@ unix {
 macx {
     DEFINES += MACOS
     QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
+    DEFINES += "\"ICS_MapRefNumAndAssign(dummy)=\""
 }
 
 win32 {
@@ -50,6 +51,7 @@ headers.files = $$XPDF_DIR/goo/gmem.h \
                 $$XPDF_DIR/xpdf/OutputDev.h \
                 $$XPDF_DIR/xpdf/PDFDoc.h \
                 $$XPDF_DIR/xpdf/SplashOutputDev.h \
+                $$XPDF_DIR/xpdf/TextString.h \
                 $$XPDF_DIR/xpdf/Catalog.h \
                 $$XPDF_DIR/xpdf/Page.h \
                 $$XPDF_DIR/xpdf/Stream.h \
@@ -86,6 +88,7 @@ SOURCES += $$XPDF_DIR/fofi/FoFiBase.cc \
            $$XPDF_DIR/splash/SplashState.cc \
            $$XPDF_DIR/splash/SplashXPath.cc \
            $$XPDF_DIR/splash/SplashXPathScanner.cc \
+           $$XPDF_DIR/xpdf/AcroForm.cc \
            $$XPDF_DIR/xpdf/Annot.cc \
            $$XPDF_DIR/xpdf/Array.cc \
            $$XPDF_DIR/xpdf/BuiltinFont.cc \
@@ -97,6 +100,7 @@ SOURCES += $$XPDF_DIR/fofi/FoFiBase.cc \
            $$XPDF_DIR/xpdf/Decrypt.cc \
            $$XPDF_DIR/xpdf/Dict.cc \
            $$XPDF_DIR/xpdf/Error.cc \
+           $$XPDF_DIR/xpdf/Form.cc \
            $$XPDF_DIR/xpdf/FontEncodingTables.cc \
            $$XPDF_DIR/xpdf/Function.cc \
            $$XPDF_DIR/xpdf/Gfx.cc \
@@ -125,7 +129,10 @@ SOURCES += $$XPDF_DIR/fofi/FoFiBase.cc \
            $$XPDF_DIR/xpdf/SplashOutputDev.cc \
            $$XPDF_DIR/xpdf/Stream.cc \
            $$XPDF_DIR/xpdf/TextOutputDev.cc \
+           $$XPDF_DIR/xpdf/TextString.cc \
            $$XPDF_DIR/xpdf/UnicodeMap.cc \
            $$XPDF_DIR/xpdf/UnicodeTypeTable.cc \
+           $$XPDF_DIR/xpdf/XFAForm.cc \
+           $$XPDF_DIR/xpdf/Zoox.cc \
            $$XPDF_DIR/xpdf/XRef.cc \
            $$XPDF_DIR/xpdf/OptionalContent.cc
