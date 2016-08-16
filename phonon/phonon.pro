@@ -93,9 +93,7 @@ HEADERS += $$SRC/phonon/abstractaudiooutput.h \
            $$SRC/phonon/graphicsview/qpainterpainter.h \
            $$SRC/phonon/graphicsview/videoframe.h \
            $$SRC/phonon/graphicsview/videographicsobject.h \
-           $$SRC/phonon/graphicsview/videographicsobjectinterface.h \
-           $$SRC/phonon/volumefadereffect.h \
-           $$SRC/phonon/graphicsview/videographicsobject.h
+           $$SRC/phonon/graphicsview/videographicsobjectinterface.h
 
 PULSE_HDR= $$SRC/phonon/pulsestream_p.h
            $$SRC/phonon/pulsesupport.h \
