@@ -1,6 +1,6 @@
 TEMPLATE = lib
-
-CONFIG  += staticlib
+CONFIG += staticlib
+CONFIG += warn_off
 
 SRC = $$PWD/zlib-1.2.8
 

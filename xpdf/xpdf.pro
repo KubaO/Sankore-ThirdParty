@@ -1,5 +1,6 @@
-TEMPLATE  = lib
-CONFIG   += staticlib
+TEMPLATE = lib
+CONFIG += staticlib
+CONFIG += warn_off
 
 XPDF_DIR = $$PWD/xpdf-3.04
 

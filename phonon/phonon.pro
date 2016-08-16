@@ -1,5 +1,6 @@
 TEMPLATE = lib
 CONFIG += staticlib
+CONFIG += warn_off
 QT += widgets
 
 SRC = $$PWD/phonon-4.9.0
@@ -135,5 +136,5 @@ SOURCES += $$SRC/phonon/abstractaudiooutput.cpp \
            $$SRC/phonon/graphicsview/glslpainter.cpp \
            $$SRC/phonon/graphicsview/qpainterpainter.cpp \
            $$SRC/phonon/graphicsview/videographicsobject.cpp
-		   
+
 PULSE_SRC= $$SRC/phonon/pulsesupport.cpp

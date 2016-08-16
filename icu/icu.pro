@@ -1,5 +1,6 @@
 TEMPLATE = lib
 CONFIG += static
+CONFIG += warn_off
 
 SRC = $$PWD/icu4c-54-1/source
 

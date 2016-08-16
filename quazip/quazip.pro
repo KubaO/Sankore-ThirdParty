@@ -1,6 +1,7 @@
 LEVEL = ..
 TEMPLATE = lib
-CONFIG  += staticlib
+CONFIG += staticlib
+CONFIG += warn_off
 
 SRC = $$PWD/quazip-0.3
 
