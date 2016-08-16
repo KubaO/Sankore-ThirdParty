@@ -69,6 +69,7 @@ HEADERS += $$SRC/phonon/abstractaudiooutput.h \
            $$SRC/phonon/phononpimpl_p.h \
            $$SRC/phonon/platform_p.h \
            $$SRC/phonon/platformplugin.h \
+           $$SRC/phonon/pulsesupport.h \
            $$SRC/phonon/qsettingsgroup_p.h \
            $$SRC/phonon/seekslider.h \
            $$SRC/phonon/seekslider_p.h \
@@ -93,8 +94,7 @@ HEADERS += $$SRC/phonon/abstractaudiooutput.h \
            $$SRC/phonon/graphicsview/videographicsobject.h \
            $$SRC/phonon/graphicsview/videographicsobjectinterface.h
 
-PULSE_HDR= $$SRC/phonon/pulsestream_p.h
-           $$SRC/phonon/pulsesupport.h \
+PULSE_HDR= $$SRC/phonon/pulsesupport.h
 
 SOURCES += $$SRC/phonon/abstractaudiooutput.cpp \
            $$SRC/phonon/abstractaudiooutput_p.cpp \
@@ -122,6 +122,7 @@ SOURCES += $$SRC/phonon/abstractaudiooutput.cpp \
            $$SRC/phonon/path.cpp \
            $$SRC/phonon/phononnamespace.cpp \
            $$SRC/phonon/platform.cpp \
+           $$SRC/phonon/pulsesupport.cpp \
            $$SRC/phonon/seekslider.cpp \
            $$SRC/phonon/statesvalidator.cpp \
            $$SRC/phonon/streaminterface.cpp \
@@ -135,5 +136,4 @@ SOURCES += $$SRC/phonon/abstractaudiooutput.cpp \
            $$SRC/phonon/graphicsview/qpainterpainter.cpp \
            $$SRC/phonon/graphicsview/videographicsobject.cpp
 		   
-PULSE_SRC= $$SRC/phonon/pulsestream.cpp \
-           $$SRC/phonon/pulsesupport.cpp \
+PULSE_SRC= $$SRC/phonon/pulsesupport.cpp
