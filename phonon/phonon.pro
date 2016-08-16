@@ -1,19 +1,17 @@
 TEMPLATE = lib
 CONFIG += staticlib
-TARGET = phonon
 QT += widgets
 
 SRC = $$PWD/phonon-4.9.0
 
 DEFINES += \
     PHONON_EXPORT= \
-    PHONON_BACKEND_DIR_SUFFIX=QString()
-
-win32:DEFINES += \
-    GL_GLEXT_PROTOTYPES
+    \"PHONON_BACKEND_DIR_SUFFIX=QString()\"
 
 ## FIXME
-DEFINES += glActiveTexture(arg)
+win32:DEFINES += \
+    GL_GLEXT_PROTOTYPES \
+    \"glActiveTexture(arg)\"
 
 DEPENDPATH  += $$PWD $$SRC/phonon
 INCLUDEPATH += $$PWD $$SRC/phonon
