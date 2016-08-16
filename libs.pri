@@ -26,7 +26,11 @@ LIBS        += "-Lthirdparty/quazip" "-lquazip"
 LIBS        += "-Lthirdparty/xpdf" "-lxpdf"
 
 XPDF_DIR     = "$$PWD/xpdf/xpdf-3.04"
-INCLUDEPATH += "$$XPDF_DIR" "$$XPDF_DIR/.."
+INCLUDEPATH += \
+    "$$XPDF_DIR" \
+    "$$XPDF_DIR/.." \
+    "$$XPDF_DIR/goo" \
+    "$$XPDF_DIR/splash"
 
 linux-g++ {
     LIBS        += -lpaper -lt1
